@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Yeongje Kim - CV portfolio for educational technology, learning sciences, teacher education, older adult education, and agentic AI research."
+    />
+    <title>Yeongje Kim | Educational Technology & Learning Sciences</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <header class="site-header" data-elevate>
+      <a class="brand" href="#top" aria-label="Yeongje Kim home">
+        <span class="brand-mark">YK</span>
+        <span class="brand-name">Yeongje Kim</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#presentations">Presentations</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+      </nav>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+        <span aria-hidden="true">◐</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Educational Technology · Learning Sciences · AI & Learning</p>
+          <h1 id="hero-title">Yeongje Kim</h1>
+          <p class="hero-role">Graduate Student in Educational Technology and Learning Sciences, Korea University</p>
+          <p class="hero-text" id="hero-bio"></p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#publications">View research</a>
+            <a class="secondary-link" href="mailto:xkxh2004@korea.ac.kr">Email</a>
+          </div>
+        </div>
+        <div class="hero-meta" aria-label="Profile highlights" id="stats"></div>
+      </section>
+
+      <section class="section intro-band" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">Profile</p>
+          <h2 id="about-title">Research capacity with field-based edges</h2>
+        </div>
+        <div class="intro-grid">
+          <p id="profile-summary"></p>
+          <div class="interest-cloud" id="interest-cloud" aria-label="Research interests"></div>
+        </div>
+      </section>
+
+      <section class="section" id="research" aria-labelledby="research-title">
+        <div class="section-heading">
+          <p class="eyebrow">Research Clusters</p>
+          <h2 id="research-title">A portfolio organized by questions, not only chronology</h2>
+        </div>
+        <div class="cluster-grid" id="cluster-grid"></div>
+      </section>
+
+      <section class="section workbench" id="publications" aria-labelledby="publications-title">
+        <div class="section-heading">
+          <p class="eyebrow">Publications</p>
+          <h2 id="publications-title">Peer-reviewed articles and manuscripts</h2>
+        </div>
+        <div class="toolbar" aria-label="Publication filters">
+          <label class="search-box">
+            <span>Search</span>
+            <input id="publication-search" type="search" autocomplete="off" placeholder="AI, older adults, PBL..." />
+          </label>
+          <div class="segmented" id="publication-filters" aria-label="Filter publications by theme"></div>
+        </div>
+        <div class="publication-list" id="publication-list"></div>
+        <div class="subsection" id="manuscripts-wrap">
+          <h3>Manuscripts Under Review</h3>
+          <div class="publication-list compact" id="manuscript-list"></div>
+        </div>
+      </section>
+
+      <section class="section workbench" id="presentations" aria-labelledby="presentations-title">
+        <div class="section-heading">
+          <p class="eyebrow">Presentations</p>
+          <h2 id="presentations-title">Conference proceedings, papers, posters, and demonstrations</h2>
+        </div>
+        <div class="toolbar" aria-label="Presentation filters">
+          <label class="search-box">
+            <span>Search</span>
+            <input id="presentation-search" type="search" autocomplete="off" placeholder="ICLS, AERA, smartphone..." />
+          </label>
+          <div class="segmented" id="presentation-filters" aria-label="Filter presentations by theme"></div>
+        </div>
+        <div class="timeline-list" id="presentation-list"></div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-title">What the work taught me</h2>
+        </div>
+        <div class="experience-list" id="experience-list"></div>
+      </section>
+
+      <section class="section education-section" id="education" aria-labelledby="education-title">
+        <div class="section-heading">
+          <p class="eyebrow">Education & Credentials</p>
+          <h2 id="education-title">Formal preparation and practical tools</h2>
+        </div>
+        <div class="education-layout">
+          <div class="education-card">
+            <h3>Education</h3>
+            <div id="education-list"></div>
+          </div>
+          <div class="education-card">
+            <h3>Awards</h3>
+            <div id="award-list"></div>
+          </div>
+          <div class="education-card">
+            <h3>Credentials & Skills</h3>
+            <div id="credential-list"></div>
+            <div class="skill-row" id="skill-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Yeongje Kim · Korea University · <a href="mailto:xkxh2004@korea.ac.kr">xkxh2004@korea.ac.kr</a></p>
+    </footer>
+
+    <script src="./data.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
