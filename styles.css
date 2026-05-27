@@ -437,9 +437,9 @@ h1 {
 .photo-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, 0.85fr));
-  grid-auto-rows: 150px;
-  gap: 12px;
-  max-width: 940px;
+  grid-auto-rows: 210px;
+  gap: 14px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
@@ -496,14 +496,12 @@ h1 {
 }
 
 .fieldwork-duo {
-  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.fieldwork-duo img:first-child {
-  object-position: center;
-}
-
-.fieldwork-duo img:last-child {
+.fieldwork-duo img {
+  background: var(--surface-2);
+  object-fit: contain;
   object-position: center;
 }
 
