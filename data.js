@@ -29,11 +29,11 @@ const siteData = {
   stats: [
     { label: "Peer-reviewed journal articles", value: "6" },
     { label: "Conference outputs", value: "14+" },
-    { label: "Research questions", value: "5" },
     {
       label: "Education, Korea University",
       value: "M.A. / B.A.",
-      detail: "ETLS (2024-2026); Geography Education & Education (2017-2024)",
+      detail: "Educational Technology and Learning Sciences (2024-2026); Geography Education & Education (2017-2024)",
+      featured: true,
     },
   ],
 
@@ -385,18 +385,6 @@ const siteData = {
       outputs: [
         "Journal of Education & Culture article on immigrant mothers' education and adolescents' transition readiness",
         "Research interest in culturally responsive teaching in multicultural classrooms",
-      ],
-    },
-    {
-      title: "How do learners move toward fuller participation in technology-rich communities?",
-      kicker: "Communities of Practice / Social Media / AI",
-      summary:
-        "This broader question links Communities of Practice with social media, AI, and learner-centered environments. I am interested in how learners develop identities, literacies, and participation trajectories across formal and informal settings.",
-      themes: ["Communities of Practice", "Social Media", "AI"],
-      outputs: [
-        "Study on students' perceptions of generative AI in higher education",
-        "Qualitative meta-analysis of PBL experiences",
-        "Smart companion Taylor demonstration for Korea University freshmen",
       ],
     },
   ],

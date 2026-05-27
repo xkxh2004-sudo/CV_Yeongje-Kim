@@ -26,7 +26,7 @@ const renderProfile = () => {
   $("#stats").innerHTML = siteData.stats
     .map(
       (stat) => `
-        <div class="stat-tile">
+        <div class="stat-tile${stat.featured ? " stat-tile-featured" : ""}">
           <strong>${escapeHTML(stat.value)}</strong>
           <span>${escapeHTML(stat.label)}</span>
           ${stat.detail ? `<small>${escapeHTML(stat.detail)}</small>` : ""}
@@ -101,11 +101,14 @@ const renderFilterButtons = (container, themes, activeTheme) => {
     .join("");
 };
 
+const formatAuthors = (value = "") =>
+  escapeHTML(value).replace(/Kim, Y\. J\.|Kim, Y\./g, (match) => `<strong class="self-author">${match}</strong>`);
+
 const makeCitation = (item) => {
   const year = item.year ? ` (${item.year}). ` : " ";
   const details = item.details ? `, ${escapeHTML(item.details)}` : "";
   const venue = item.venue ? `<em>${escapeHTML(item.venue)}</em>${details}` : "";
-  return `${escapeHTML(item.authors)}${year}${escapeHTML(item.title)}. ${venue}.`;
+  return `${formatAuthors(item.authors)}${year}${escapeHTML(item.title)}. ${venue}.`;
 };
 
 const makeKoreanBlock = (item) => {
@@ -166,7 +169,7 @@ const renderPresentationItem = (item, index) => {
       </div>
       <div class="citation">
         <h3>${escapeHTML(item.title)}</h3>
-        <p>${escapeHTML(item.authors)} (${escapeHTML(item.year)}). ${escapeHTML(item.title)}.</p>
+        <p>${formatAuthors(item.authors)} (${escapeHTML(item.year)}). ${escapeHTML(item.title)}.</p>
         ${makeKoreanBlock(item)}
         <div class="citation-meta">${escapeHTML(details)}</div>
         <div class="card-tags">${(item.themes || []).map((theme, tagIndex) => renderTag(theme, index + tagIndex)).join("")}</div>
