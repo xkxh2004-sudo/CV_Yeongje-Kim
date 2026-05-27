@@ -29,6 +29,7 @@ const renderProfile = () => {
         <div class="stat-tile">
           <strong>${escapeHTML(stat.value)}</strong>
           <span>${escapeHTML(stat.label)}</span>
+          ${stat.detail ? `<small>${escapeHTML(stat.detail)}</small>` : ""}
         </div>
       `,
     )
@@ -218,17 +219,20 @@ const renderExperiences = () => {
 };
 
 const renderEducation = () => {
-  $("#education-list").innerHTML = siteData.education
-    .map(
-      (item) => `
-        <div class="edu-entry">
-          <p class="edu-degree">${escapeHTML(item.degree)}</p>
-          <p>${escapeHTML(item.institution)} · ${escapeHTML(item.period)}</p>
-          <p>${escapeHTML(item.detail)}</p>
-        </div>
-      `,
-    )
-    .join("");
+  const educationList = $("#education-list");
+  if (educationList) {
+    educationList.innerHTML = siteData.education
+      .map(
+        (item) => `
+          <div class="edu-entry">
+            <p class="edu-degree">${escapeHTML(item.degree)}</p>
+            <p>${escapeHTML(item.institution)} · ${escapeHTML(item.period)}</p>
+            <p>${escapeHTML(item.detail)}</p>
+          </div>
+        `,
+      )
+      .join("");
+  }
 
   $("#award-list").innerHTML = siteData.awards
     .map(
@@ -361,6 +365,8 @@ const setupCanvas = () => {
     const dark = document.documentElement.dataset.theme === "dark";
     const lineColor = dark ? "rgba(143, 181, 232, 0.16)" : "rgba(49, 95, 159, 0.16)";
     const textColor = dark ? "rgba(245, 247, 243, 0.78)" : "rgba(21, 24, 22, 0.72)";
+    const showLabels = width >= 760;
+    const labelLimit = Math.min(260, height * 0.32);
 
     nodes.forEach((node, index) => {
       if (!prefersReduced) {
@@ -406,9 +412,11 @@ const setupCanvas = () => {
       ctx.arc(node.x, node.y, 4.8, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.font = "700 12px Inter, system-ui, sans-serif";
-      ctx.fillStyle = textColor;
-      ctx.fillText(node.label, node.x + 10, node.y - 8);
+      if (showLabels && node.y < labelLimit) {
+        ctx.font = "700 12px Inter, system-ui, sans-serif";
+        ctx.fillStyle = textColor;
+        ctx.fillText(node.label, node.x + 10, node.y - 8);
+      }
     });
 
     requestAnimationFrame(draw);
